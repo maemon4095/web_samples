@@ -24,10 +24,11 @@
 <script>
   const input = document.getElementById('input');
   const output = document.getElementById('output');
+  let lastTimeout = undefined;
 
   input.addEventListener('input', (e) => {
-    clearTimeout(render);
-    setTimeout(render, 500);
+    clearTimeout(lastTimeout);
+    lastTimeout = setTimeout(render, 500);
   });
 
   function render() {
