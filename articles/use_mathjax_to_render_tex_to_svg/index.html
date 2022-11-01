@@ -10,22 +10,6 @@
     };
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-  <script defer>
-    const input = document.getElementById('input');
-    const output = document.getElementById('output');
-
-    input.addEventListener('input', (e) => {
-      clearTimeout(render);
-      setTimeout(render, 1);
-    });
-
-    function render() {
-      const container = MathJax.tex2svg(input.value);
-      const [svg] = container.children;
-      output.replaceChildren(svg);
-    }
-  </script>
 </head>
 
 <body>
@@ -35,5 +19,22 @@
   <div id="output">
   </div>
 </body>
+
+
+<script>
+  const input = document.getElementById('input');
+  const output = document.getElementById('output');
+
+  input.addEventListener('input', (e) => {
+    clearTimeout(render);
+    setTimeout(render, 1);
+  });
+
+  function render() {
+    const container = MathJax.tex2svg(input.value);
+    const [svg] = container.children;
+    output.replaceChildren(svg);
+  }
+</script>
 
 </html>
