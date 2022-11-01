@@ -53,7 +53,8 @@
 
     //ダウンロード用のリンクを作成
     const link = document.createElement('a');
-    link.href = `data:image/svg+xml,${encodeURI(svg.outerHTML)}`;
+    link.innerText = "download";
+    link.href = `data:image/svg+xml,${encodeURIComponent(svg.outerHTML)}`;
     link.setAttribute('download', 'math.svg');
     output.append(link);
   }
