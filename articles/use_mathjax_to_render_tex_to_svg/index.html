@@ -50,7 +50,16 @@
     const container = MathJax.tex2svg(input.value);
     const [svg] = container.children;
     output.replaceChildren(svg);
+
+    //ダウンロード用のリンクを作成
+    const link = document.createElement('a');
+    const blob = new Blob([svg], { type: 'image/svg+xml' });
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute('download', 'math.svg');
+    document.body.append(link);
   }
+
+
 </script>
 
 </html>
